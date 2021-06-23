@@ -17,7 +17,7 @@ app.get('/*', function(req,res){
     console.log(" Fetching from.." + fullPath);
       res.sendFile(fullPath);
   })
-}
+
 /*if(process.env.NODE_ENV === 'production'){
     app.use('/', express.static(path.join(__dirname, 'client', 'build')));
     app.get('*', (req, res) => {
