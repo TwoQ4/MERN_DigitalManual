@@ -10,7 +10,7 @@ const DB_CONN = process.env.DB_CONN_STR;
 
 app.use(express.json({extended: true}));
 
-app.use('/api/auth', require('./routes/auth.route'));
+app.use('/axmern/api/auth', require('./routes/auth.route'));
 
 if(process.env.NODE_ENV === 'production'){
     app.use('/', express.static(path.join(__dirname, 'client', 'build')));
