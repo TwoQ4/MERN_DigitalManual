@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path')
+const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
+const DB_CONN = process.env.DB_CONN_STR;
 
 
 app.use(express.json({extended: true}));
@@ -19,7 +21,7 @@ if(process.env.NODE_ENV === 'production'){
 
 async function start() {
     try {
-        await mongoose.connect('mongodb+srv://admin:admin@cluster0.3lxjw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+        await mongoose.connect(DB_CONN,
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,
